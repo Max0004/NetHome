@@ -1,0 +1,69 @@
+body {
+	background-color: brown;
+	font-size: 28px;
+}
+
+
+.selectFloor, .loginform{
+	background-color: green;
+	margin: 1em;
+	padding: 4px;
+}
+
+.active {
+	background-color: #4CAF50;
+}
+
+
+.mainheader{
+	position: -webkit-sticky;
+	position: sticky;
+	top: 0;
+}
+
+ul {
+	list-style-type: none;
+	margin: o;
+	padding: 0;
+	overflow: hidden;
+	background-color: #333;
+	position: -webkit-sticky;
+	position: sticky;
+	top: 0;
+}
+
+li {
+	float: left;
+}
+
+li a {
+	display: block;
+	color: white;
+	text-align: center;
+	padding: 14px 16px;
+	text-decoration: none;
+}
+
+li a:hover {
+	background-color: #4CAF50;
+}
+.tooltip {
+	visibility: hidden;
+	width: 120px;
+	background-color: black;
+	color: #fff;
+	text-align: center;
+	border-radius: 6px;
+	padding: 5px 0;
+	
+	position: absolute;
+	z-index: 1;
+}
+
+.floor:hover .tooltip{
+	visibility: visible;
+}
+
+.login:hover .tooltip{
+	visibility: visible;
+}
