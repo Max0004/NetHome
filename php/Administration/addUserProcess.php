@@ -7,7 +7,7 @@
 			
 	include "../dbconnect.php";
 			
-	$sql = "INSERT INTO users(FirstName,LastName,Birthdate,Email,Workplace) VALUE(".$fn.",".$nn.",".$g.",".$m.",".$w.");";
-	//$url = "addUser.php";
-	//echo "<script type='text/javascript'>document.location.href='{$url}';</script>";
+	$sql = "INSERT INTO users(FirstName,LastName,Birthdate,Email,Workplace) VALUES('$fn','$nn','$g','$m','$w');";
+	mysqli_query($conn, $sql);
+	header("Location: ../users.php");
 ?>

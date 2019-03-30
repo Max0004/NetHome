@@ -29,7 +29,7 @@
 			while($row = $result->fetch_assoc()){
 				echo $row["FirstName"]."<br>";
 				echo $row["LastName"]."<br>";
-				echo $row["Birthdate"]."<br>";
+				echo date ("d.M.Y", strtotime($row["Birthdate"]))."<br>";
 				echo $row["Workplace"]."<br><br>";
 			}
 		}
