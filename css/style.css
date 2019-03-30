@@ -4,10 +4,17 @@ body {
 }
 
 
-.selectFloor, .loginform{
+.selectFloor, .loginform, .contentbox{
 	background-color: green;
 	margin: 1em;
 	padding: 4px;
+}
+
+.selectAdministration {
+	background-color: grey;
+	margin: 8px;
+	padding: 3px;
+	font-size: 30px;
 }
 
 .active {

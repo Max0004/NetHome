@@ -1,8 +1,9 @@
 <!DOCTYPE html>
 <html>
 <head>
-	<title>Neues Möbelstück</title>
+	<title>Vergebe Arbeitsaufträge</title>
 	<link rel="stylesheet" type="text/css" href="../../css/style.css">
+	<meta charset="UTF8"/>
 </head>
 <body>
 	<center><h1 style="background-color: white; margin-left: 8em; margin-right: 8em;">NetHome</h1></center>

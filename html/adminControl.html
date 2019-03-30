@@ -1,20 +1,35 @@
 <!DOCTYPE html>
 <html>
 <head>
-	<title>Adim Kontrollfeld</title>
+	<title>Admin-Kontrollfeld</title>
 	<link rel="stylesheet" type="text/css" href="../css/style.css">
+	<meta charset="UTF8" /> <!--Gibt Sonderzeichen aus-->
 </head>
 <body>
 	<center><h1 style="background-color: white; margin-left: 8em; margin-right: 8em;">NetHome</h1></center>
-	<div class="mainheader">
-		<list>
-			<ul>
-				<li><a href="../index.html">Start</a></li>
-				<li><a href="houseinform.html">Hausinformation</a></li>
-				<li><a href="../php/users.php">Bewohner</a></li>
-				<li style="float: right;"><a href="../php/Administration/adminLogin.php">Login</a></li>
-			</ul>
-		</list>
+	<div class="contentbox">
+	<input type="button" value="Adminmodus verlassen" style="width: 15em; height: 3em;" onclick="window.location.href='../index.html'"/><br><p>
+	<h3>Sie sind jetzt als Admin angemeldet. Unten stehen folgende Optionen.</h3>
+		<table>
+			<tr>
+				<td class="selectAdministration"><h2><a href="../php/Administration/postWork.php">Aufträge zuweisen</a></h2></td>
+			</tr>
+			<tr>
+				<td class="selectAdministration"><h2><a href="../php/Administration/addInventory.php">Objekt im Haus hinzufügen</a></h2></td>
+			</tr>
+			<tr>
+				<td class="selectAdministration"><h2><a href="../php/Administration/removeInventory.php">Objekt aus Haus entfernen</a></h2></td>
+			</tr>
+			<tr>
+				<td class="selectAdministration"><h2><a href="../php/Administration/money.php">Finanzen</a></h2></td>
+			</tr>
+			<tr>
+				<td class="selectAdministration"><h2><a href="../php/Administration/addUser.php">Person im Haus hinzufügen</a></h2></td>
+			</tr>
+			<tr>
+				<td class="selectAdministration"><h2><a href="../php/Administration/removeUser.php">Person aus Haus entfernen</a></h2></td>
+			</tr>
+		</table>
 	</div>
 </body>
 </html>

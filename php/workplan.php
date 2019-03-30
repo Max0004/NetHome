@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-	<title>Hausinformationen</title>
+	<title>Arbeitsplan</title>
 	<link rel="stylesheet" type="text/css" href="../css/style.css">
 </head>
 <body>
@@ -10,9 +10,9 @@
 		<list>
 			<ul>
 				<li><a href="../index.html">Start</a></li>
-				<li class="active"><a href="houseinform.html">Hausinformation</a></li>
-				<li><a href="../php/users.php">Bewohner</a></li>
-				<li><a href="../php/workplan.php">Arbeitsplan</a></li>
+				<li><a href="../html/houseinform.html">Hausinformation</a></li>
+				<li><a href="users.php">Bewohner</a></li>
+				<li class="active"><a href="#">Arbeitsplan</a></li>
 				<li style="float: right;"><a href="../php/Administration/adminLogin.php">Login</a></li>
 			</ul>
 		</list>

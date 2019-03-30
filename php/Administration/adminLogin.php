@@ -12,14 +12,15 @@
 				<li><a href="../../index.html">Start</a></li>
 				<li><a href="../../html/houseinform.html">Hausinformation</a></li>
 				<li><a href="../users.php">Bewohner</a></li>
+				<li><a href="../workplan.php">Arbeitsplan</a></li>
 				<li style="float: right;" class="active"><a href="../Administration/adminLogin.php">Login</a></li>
 			</ul>
 		</list>
 	</div>
 	<div class="loginform">
-		<center><form method="get" action="">
-			<div class="login"><input type="text"><span class="tooltip">Name</span></div><br>
-			<div class="login"><input type="password"/><span class="tooltip">Passwort</span></div><br>
+		<center><form method="post" action="LogInProcess.php">
+			<div class="login"><input name="username" type="text" required /><span class="tooltip">Name</span></div><br>
+			<div class="login"><input name="password" type="password" required /><span class="tooltip">Passwort</span></div><br>
 			<br><input type="submit"/>
 		</form></center>
 	</div>
