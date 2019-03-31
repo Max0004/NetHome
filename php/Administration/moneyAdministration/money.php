@@ -2,18 +2,14 @@
 <html>
 <head>
 	<title>Finanzübersicht</title>
-	<link rel="stylesheet" type="text/css" href="../../css/style.css">
+	<link rel="stylesheet" type="text/css" href="../../../css/style.css">
 </head>
 <body>
 	<center><h1 style="background-color: white; margin-left: 8em; margin-right: 8em;">NetHome</h1></center>
 	<div class="contentbox">
 		<center><h2>Haushaltskasse</h2></center>
-		<input type="button" value="Zurück zur Übersicht" style="width: 15em; height: 3em;" onclick="window.location.href='../../html/adminControl.html'"/><br>
-		<br><input type="button" value="Unternehme Kontoeinzüge" style="width: 13em; height: 2em;" onclick="window.location.href='addMoney.php'"/>
-		<br><input type="button" value="Unternehme Kontoauszüge" style="width: 13em; height: 2em;" onclick="window.location.href='removeMoney.php'"/><br>
-		<?php
-			include "../dbconnect.php";
-		?>
+		<input type="button" value="Zurück zur Übersicht" style="width: 15em; height: 3em;" onclick="window.location.href='../../../html/adminControl.html'"/><br>
+		<br><input type="button" value="Unternehme Kontoein- und -auszüge" style="width: 19em; height: 2em;" onclick="window.location.href='changeMoney.php'"/><br>
 		<table>
 		<tr><td>
 		<table cellspacing="12px">
@@ -22,7 +18,7 @@
 				<th>Guthaben</th>
 			</tr>
 			<?php
-			include "../dbconnect.php";
+			include "../../DB_Connection/dbconnect.php";
 			
 			$sql = "SELECT FirstName, LastName, Money FROM users;";
 			$result = $conn->query($sql);
@@ -35,7 +31,7 @@
 			?>
 		</table>
 			<?php
-			include "../dbconnect.php";
+			include "../../DB_Connection/dbconnect.php";
 			
 			$sql2 = "SELECT SUM(Money) FROM users;";
 			foreach($conn->query($sql2) as $row2){

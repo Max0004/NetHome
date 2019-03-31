@@ -12,6 +12,7 @@
 				<li><a href="../../index.html">Start</a></li>
 				<li><a href="../../html/houseinform.html">Hausinformation</a></li>
 				<li><a href="../users.php">Bewohner</a></li>
+				<li><a href="../UserControl/workplan.php">Arbeitsplan</a></li>
 				<li style="float: right;"><a href="../Administration/adminLogin.php">Login</a></li>
 			</ul>
 		</list>

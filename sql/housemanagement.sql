@@ -91,6 +91,7 @@ CREATE TABLE `users` (
   `FirstName` varchar(40) DEFAULT NULL,
   `LastName` varchar(30) DEFAULT NULL,
   `Birthdate` datetime DEFAULT NULL,
+  `EMail` varchar(40) DEFAULT NULL,
   `Workplace` varchar(40) DEFAULT NULL,
   `RoomID` int(11) DEFAULT NULL,
   `Money` int(11) DEFAULT NULL
