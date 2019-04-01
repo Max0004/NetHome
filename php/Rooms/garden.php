@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-	<title>Start</title>
+	<title>Garten</title>
 	<link rel="stylesheet" type="text/css" href="../../css/style.css">
 </head>
 <body>
@@ -16,6 +16,9 @@
 				<li style="float: right;"><a href="../Administration/adminLogin.php">Login</a></li>
 			</ul>
 		</list>
+	</div>
+	<div class="contentbox">
+		<br><input type="button" value="Zurück ins Haus" style="width: 12em; height: 2em;" onclick="window.location.href='../Floors/firstFloor.php'"/><br>
 	</div>
 </body>
 </html>

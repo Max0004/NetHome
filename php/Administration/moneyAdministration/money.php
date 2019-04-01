@@ -25,7 +25,14 @@
 		
 			if($result ->num_rows > 0){
 			while($row = $result->fetch_assoc()){
-				echo "<tr>"."<td>".$row["FirstName"]."</td>"."<td style='text-align: right;'>".$row["Money"]."€"."</td>"."</tr>";
+				$color = "black";
+				if($row["Money"] < 0){
+					$color = "red";
+					echo "<tr>"."<td>".$row["FirstName"]."</td>"."<td style='text-align: right; color:$color;'>".$row["Money"]."€"."</td>"."</tr>";
+				}
+				else{
+					echo "<tr>"."<td>".$row["FirstName"]."</td>"."<td style='text-align: right; color:$color;'>".$row["Money"]."€"."</td>"."</tr>";
+				}
 			}
 		}
 			?>
@@ -34,8 +41,18 @@
 			include "../../DB_Connection/dbconnect.php";
 			
 			$sql2 = "SELECT SUM(Money) FROM users;";
-			foreach($conn->query($sql2) as $row2){
-			echo "Die Haushaltskasse beträgt ".$row2["SUM(Money)"]."€";
+			
+			$result2 = $conn->query($sql2);
+		
+			if($result2 ->num_rows > 0){
+				$color = "black";
+				$row2 = $result2->fetch_assoc();
+				if($row2["SUM(Money)"] < 0){
+					$color = "red";
+				}
+				foreach($conn->query($sql2) as $row2){
+				echo "<table><tr><td>"."Die Haushaltskasse beträgt "."</td><td style='color:$color;'>".$row2["SUM(Money)"]."€";
+				}
 			}
 			?>
 	</div>

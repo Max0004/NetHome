@@ -8,6 +8,7 @@ body {
 	background-color: green;
 	margin: 1em;
 	padding: 4px;
+	z-index: 0;
 }
 
 .selectAdministration {
