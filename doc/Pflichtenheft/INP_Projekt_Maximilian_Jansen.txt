@@ -1,0 +1,9 @@
+Hausverwaltung und Arbeitsaufteilung
+Beinhaltet: Einwohner, Etagen, Räume, Hausinventar
+	    Haushaltsheirachie, Arbbeitsaufträge
+
+Es soll für jeden die Raumaufteilung und das Haushalts-
+inventar angezeigt werden. Der Admin, der sich sepperat
+anmeldet, kann eine Übersicht auf die Haushaltskasse
+erhalten und entweder Einzüge oder Auszüge vornehmen.
+Ausserdem kann dieser "Taschengeld" geben.
