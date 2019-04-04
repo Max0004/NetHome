@@ -9,14 +9,23 @@
 	<div class="contentbox">
 		<center><h2>Haushaltskasse</h2></center>
 		<input type="button" value="Zurück zur Übersicht" style="width: 15em; height: 3em;" onclick="window.location.href='../../../html/adminControl.html'"/><br>
-		<br><input type="button" value="Unternehme Kontoein- und -auszüge" style="width: 19em; height: 2em;" onclick="window.location.href='changeMoney.php'"/><br>
-		<table>
-		<tr><td>
-		<table cellspacing="12px">
-			<tr>
-				<th>Konto</th>
-				<th>Guthaben</th>
-			</tr>
+		<?php
+		include "../../DB_Connection/dbconnect.php";
+			
+			$sql = "SELECT FirstName, LastName, Money FROM users;";
+			$result = $conn->query($sql);
+		
+			if($result ->num_rows > 0){
+		echo "<br><input type='button' value='Unternehme Kontoein- und -auszüge' style='width: 19em; height: 2em;' onclick='window.location.href='changeMoney.php''/><br>";
+		echo "<table>";
+		echo "<tr><td>";
+		echo "<table cellspacing='12px'>";
+			echo "<tr>";
+				echo "<th>Konto</th>";
+				echo "<th>Guthaben</th>";
+			echo "</tr>";
+			}
+			?>
 			<?php
 			include "../../DB_Connection/dbconnect.php";
 			
@@ -34,6 +43,9 @@
 					echo "<tr>"."<td>".$row["FirstName"]."</td>"."<td style='text-align: right; color:$color;'>".$row["Money"]."€"."</td>"."</tr>";
 				}
 			}
+		}
+		else{
+			echo "In diesem Haushalt sind keine Einwohner registriert";
 		}
 			?>
 		</table>

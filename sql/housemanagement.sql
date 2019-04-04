@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Erstellungszeit: 20. Mrz 2019 um 09:17
+-- Erstellungszeit: 03. Apr 2019 um 10:53
 -- Server-Version: 10.1.36-MariaDB
 -- PHP-Version: 7.2.11
 
@@ -45,6 +45,15 @@ CREATE TABLE `floor` (
   `Description` varchar(15) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
+--
+-- Daten für Tabelle `floor`
+--
+
+INSERT INTO `floor` (`ID`, `Description`) VALUES
+(1, 'Erdgeschoss'),
+(2, 'Erstes Obergesc'),
+(3, 'Dachboden');
+
 -- --------------------------------------------------------
 
 --
@@ -67,6 +76,24 @@ CREATE TABLE `room` (
   `Description` varchar(40) DEFAULT NULL,
   `FloorID` int(11) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Daten für Tabelle `room`
+--
+
+INSERT INTO `room` (`ID`, `Description`, `FloorID`) VALUES
+(1, 'Küche', 1),
+(2, 'Badezimmer (Erdgeschoss)', 1),
+(3, 'Wohnzimmer', 1),
+(4, 'Esszimmer', 1),
+(5, 'Hobbyraum', 1),
+(6, 'Badezimmer(erstes Obergeschoss)', 2),
+(7, 'Schlafzimmer 1', 2),
+(8, 'Schlafzimmer 2', 2),
+(9, 'Büro', 2),
+(10, 'Dachboden', 3),
+(11, 'Garage', 1),
+(12, 'Garten', 1);
 
 -- --------------------------------------------------------
 
@@ -190,7 +217,7 @@ ALTER TABLE `categories`
 -- AUTO_INCREMENT für Tabelle `floor`
 --
 ALTER TABLE `floor`
-  MODIFY `ID` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `ID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
 --
 -- AUTO_INCREMENT für Tabelle `household`
@@ -202,7 +229,7 @@ ALTER TABLE `household`
 -- AUTO_INCREMENT für Tabelle `room`
 --
 ALTER TABLE `room`
-  MODIFY `ID` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `ID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=13;
 
 --
 -- AUTO_INCREMENT für Tabelle `users`
