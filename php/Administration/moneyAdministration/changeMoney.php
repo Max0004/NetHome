@@ -1,6 +1,6 @@
 <?php
 session_start();
-if(!isset($_SESSION["logged_in"]) || !$_SESSION["logged_in"]) header("location: ../../Index.html");
+if(!isset($_SESSION["logged_in"]) || !$_SESSION["logged_in"]) header("location: ../../../Index.html");
 
 ?>
 <!DOCTYPE html>
@@ -21,11 +21,13 @@ if(!isset($_SESSION["logged_in"]) || !$_SESSION["logged_in"]) header("location: 
 				$result = $conn->query($sql);
 		if($result ->num_rows > 0){
 			echo "<select name='Name'>";
+			//Lädt die Inhalte aus der >Tabeller users in die Combobox und übermittelt die ID des ausgewählten Objekts
 			while($row = $result->fetch_assoc()){
 				echo "<option value='".$row["ID"]."'>".$row["FirstName"].$row["LastName"]."</option>";
 			}
 			echo "</select><br>";
-			echo "<input type='number' name='newmoney' required >€</input><br>";
+			//Die eingegebene Zahl (positiver oder negativer Wert) wird als newmoney übermittelt
+			echo "<input type='number' step='0.01' name='newmoney' required >€</input><br>";
 			echo "<input type='submit' />";
 		}
 			?>

@@ -34,6 +34,7 @@
 			}
 		}
 		else{
+			//Wenn keine Einträge vorhanden sind
 			echo "In diesem Haushalt sind keine Einwohner registriert";
 		}
 	$conn->close();

@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Erstellungszeit: 03. Apr 2019 um 10:53
+-- Erstellungszeit: 05. Apr 2019 um 08:35
 -- Server-Version: 10.1.36-MariaDB
 -- PHP-Version: 7.2.11
 
@@ -21,6 +21,7 @@ SET time_zone = "+00:00";
 --
 -- Datenbank: `housemanagement`
 --
+DROP DATABASE IF EXISTS housemanagement;
 CREATE DATABASE housemanagement;
 USE housemanagement;
 -- --------------------------------------------------------
@@ -121,7 +122,7 @@ CREATE TABLE `users` (
   `EMail` varchar(40) DEFAULT NULL,
   `Workplace` varchar(40) DEFAULT NULL,
   `RoomID` int(11) DEFAULT NULL,
-  `Money` int(11) DEFAULT NULL
+  `Money` double(16,2) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 -- --------------------------------------------------------
@@ -223,7 +224,7 @@ ALTER TABLE `floor`
 -- AUTO_INCREMENT für Tabelle `household`
 --
 ALTER TABLE `household`
-  MODIFY `UserID` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `UserID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
 --
 -- AUTO_INCREMENT für Tabelle `room`
@@ -235,7 +236,7 @@ ALTER TABLE `room`
 -- AUTO_INCREMENT für Tabelle `users`
 --
 ALTER TABLE `users`
-  MODIFY `ID` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `ID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
 --
 -- AUTO_INCREMENT für Tabelle `work`
@@ -251,7 +252,7 @@ ALTER TABLE `work`
 -- Constraints der Tabelle `household`
 --
 ALTER TABLE `household`
-  ADD CONSTRAINT `FK_UserHousehold` FOREIGN KEY (`UserID`) REFERENCES `users` (`ID`);
+  ADD CONSTRAINT `FK_UserHousehold` FOREIGN KEY (`UserID`) REFERENCES `users` (`ID`) ON DELETE CASCADE;
 
 --
 -- Constraints der Tabelle `room`

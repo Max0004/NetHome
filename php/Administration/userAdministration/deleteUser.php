@@ -1,13 +1,14 @@
 <?php
 	include "../../DB_Connection/dbconnect.php";
-	$sql = "DELETE FROM users WHERE ID='$_GET[id]';";	//Löscht die Daten durch die übergebene ID
-
-	$result = $conn->query($sql);
+	//Löscht alle Inhalte in den Tabellen users und household, wenn diese mit der überlieferten id übereinstimmt
+	$sql = "DELETE users.*,household.* FROM users JOIN household ON household.UserID=users.ID WHERE users.ID='$_GET[id]' AND household.UserID='$_GET[id]';";	//Löscht die Daten durch die übergebene ID
 	
-	if($conn->query($sql)){
-		header("refresh:1; url=removeUser.php");			//Lädt die Seite neu und leitet auf die Admin Nutzer-Übersicht um
+	//Wenn der Befehl funktioniert...
+	if($conn->query($sql) === TRUE){
+		header("refresh:1; url=removeUser.php");			//... lädt die Seite neu und leitet auf die Admin Nutzer-Übersicht um
 	}
+	//Wenn nicht...
 	else{
-		echo"Kann nicht gelöscht werden!";
+		echo"Kann nicht gelöscht werden!".$conn->error; //Gibt eine Fehlermeldung aus
 	}
 ?>

@@ -1,5 +1,5 @@
 <?php
-session_start();
+session_start();	//Startet eine Session und leitet auf die Hauptseite um, wenn man nicht angemeldet ist
 if(!isset($_SESSION["logged_in"]) || !$_SESSION["logged_in"]) header("location: ../../Index.html");
 
 ?>

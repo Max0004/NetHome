@@ -1,6 +1,6 @@
 <?php
 session_start();
-if(!isset($_SESSION["logged_in"]) || !$_SESSION["logged_in"]) header("location: ../../Index.html");
+if(!isset($_SESSION["logged_in"]) || !$_SESSION["logged_in"]) header("location: ../../../Index.html");
 
 ?>
 <!DOCTYPE html>
@@ -12,7 +12,7 @@ if(!isset($_SESSION["logged_in"]) || !$_SESSION["logged_in"]) header("location: 
 <body>
 	<center><h1 style="background-color: white; margin-left: 8em; margin-right: 8em;">NetHome</h1></center>
 	<div class="contentbox">
-		<input type="button" value="Abbrechen" style="width: 15em; height: 3em;" onclick="window.location.href='../../../html/adminControl.html'"/><br>
+		<input type="button" value="Abbrechen" style="width: 15em; height: 3em;" onclick="window.location.href='../adminControl.php'"/><br>
 		<center><h4>Neuen Nutzer anlegen</h4></center>
 		<form method="post" action="addUserProcess.php">
 		<table>
@@ -35,6 +35,9 @@ if(!isset($_SESSION["logged_in"]) || !$_SESSION["logged_in"]) header("location: 
 			<td><label>Arbeit:</td><td></label><input type="text" name="workplace" required /></td>
 			</tr>
 			<tr>
+			<td><label>Position:</td><td></label><input type="text" name="position" required /></td>
+			</tr>
+			<tr>
 			<td><label> </td>
 			<td></label><input type="submit" /></td>
 			</tr>
@@ -47,13 +50,17 @@ if(!isset($_SESSION["logged_in"]) || !$_SESSION["logged_in"]) header("location: 
 				<th>Geburtsdatum</th>
 				<th>EMail</th>
 				<th>Arbeitsplatz</th>
+				<th>Position</th>
 			</tr>
 			<?php
 				include "../../DB_Connection/dbconnect.php";
-				$sql = "SELECT * FROM users;";
+				//Ruft die Werte in der Tabelle users auf und baut einen Inner Join zu household auf
+				$sql = "SELECT users.FirstName,users.LastName,users.Birthdate,users.EMail,users.Workplace,household.Position FROM users INNER JOIN household ON household.UserID=users.ID;";
 				
-				$result = $conn->query($sql);
+				$result = $conn->query($sql); //Führt den SQL-Befehl aus
 				
+				//Zeigt die abgefragten Werte in einer Tabelle an
+				//Durchläuft eine Schleife bis zum Ende der Tabelle
 				while($row = $row = $result->fetch_assoc()){
 					echo "<tr>";
 					echo "<td>".$row["FirstName"]."</td>";
@@ -63,6 +70,7 @@ if(!isset($_SESSION["logged_in"]) || !$_SESSION["logged_in"]) header("location: 
 					echo "</td>";
 					echo "<td>".$row["EMail"]."</td>";
 					echo "<td>".$row["Workplace"]."</td>";
+					echo "<td>".$row["Position"]."</td>";
 					echo "</tr>";
 				}
 			?>

@@ -1,6 +1,6 @@
 <?php
 session_start();
-if(!isset($_SESSION["logged_in"]) || !$_SESSION["logged_in"]) header("location: ../../Index.html");
+if(!isset($_SESSION["logged_in"]) || !$_SESSION["logged_in"]) header("location: ../../../Index.html");
 
 ?>
 <!DOCTYPE html>
@@ -12,7 +12,7 @@ if(!isset($_SESSION["logged_in"]) || !$_SESSION["logged_in"]) header("location: 
 <body>
 	<center><h1 style="background-color: white; margin-left: 8em; margin-right: 8em;">NetHome</h1></center>
 	<div class="contentbox">
-		<input type="button" value="Zurück zur Übersicht" style="width: 15em; height: 3em;" onclick="window.location.href='../../../html/adminControl.html'"/><br><p>
+		<input type="button" value="Zurück zur Übersicht" style="width: 15em; height: 3em;" onclick="window.location.href='../adminControl.php'"/><br><p>
 		<table border=1 cellpadding=1 cellspacing=1>
 			<tr>
 				<th>Nachname</th>
@@ -21,11 +21,13 @@ if(!isset($_SESSION["logged_in"]) || !$_SESSION["logged_in"]) header("location: 
 			</tr>
 			<?php
 				include "../../DB_Connection/dbconnect.php";
+				//Ruft alle Inhalte aus der Tabelle users auf
 				$sql = "SELECT * FROM users;";
-				
+				//Führt den SQL-Befehl aus
 				$result = $conn->query($sql);
-				
-				while($row = $row = $result->fetch_assoc()){
+				//Durchläuft eine Schleife, zeigt die Inhalte vom Datenfeld LastName und FirstName an und implementiert einen
+				//Link mit der ID, um die Datenfelder zu löschen
+				while($row = $result->fetch_assoc()){
 					echo "<tr>";
 					echo "<td>".$row["LastName"]."</td>";
 					echo "<td>".$row["FirstName"]."</td>";
