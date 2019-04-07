@@ -82,7 +82,7 @@ if(!isset($_SESSION["logged_in"]) || !$_SESSION["logged_in"]) header("location: 
 				//Zeigt die abgefragten Werte in einer Tabelle an
 				//Durchläuft eine Schleife bis zum Ende der Tabelle
 				while($row = $result->fetch_assoc()){
-					if(!$row["FirstName"]=="DEFAULT"){
+					//if(!$row["FirstName"]=="DEFAULT"){
 					echo "<tr>";
 					echo "<td>".$row["FirstName"]."</td>";
 					echo "<td>".$row["LastName"]."</td>";
@@ -101,7 +101,7 @@ if(!isset($_SESSION["logged_in"]) || !$_SESSION["logged_in"]) header("location: 
 						echo "<td>Nein</td>";
 					}
 					echo "</tr>";
-					}
+					//}
 				}
 			?>
 		</table>

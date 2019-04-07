@@ -27,13 +27,13 @@
 		
 		if($result ->num_rows > 0){
 			while($row = $result->fetch_assoc()){
-			if(!$row["FirstName"]=="DEFAULT"){
+			//if(!$row["FirstName"]=="DEFAULT"){
 				echo $row["FirstName"]."<br>";
 				echo $row["LastName"]."<br>";
 				echo date ("d.M.Y", strtotime($row["Birthdate"]))."<br>";
 				echo $row["Workplace"]."<br><br>";
 			}
-			}
+			//}
 		}
 		else{
 			//Wenn keine Einträge vorhanden sind
