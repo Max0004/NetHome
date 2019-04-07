@@ -28,12 +28,14 @@ if(!isset($_SESSION["logged_in"]) || !$_SESSION["logged_in"]) header("location: 
 				//Durchläuft eine Schleife, zeigt die Inhalte vom Datenfeld LastName und FirstName an und implementiert einen
 				//Link mit der ID, um die Datenfelder zu löschen
 				while($row = $result->fetch_assoc()){
+					if(!$row["FirstName"]=="DEFAULT"){
 					echo "<tr>";
 					echo "<td>".$row["LastName"]."</td>";
 					echo "<td>".$row["FirstName"]."</td>";
 					echo "<td><a href=deleteUser.php?id=".$row["ID"].">Löschen</a></td>";
 					echo "</tr>";
 				}
+			}
 			?>
 		</table>
 	</div>

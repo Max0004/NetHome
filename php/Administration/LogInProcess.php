@@ -1,17 +1,19 @@
 <?php
 
-session_start();
-
+	include "../DB_Connection/dbconnect.php";
 	//Speichert übertragende Werte on lokalen Variablen
 	$username = $_POST["username"];
-	$password = $_POST["password"];
+	$password = md5($_POST["password"]);
 	
-	//Überprüft die Ausgabe mit den festen Werten und leitet je nach Ergebnis um
-	if($username == "MusterHaus1789" && $password == "mvemJSUNp9"){
-		$url = "adminControl.php";
-		$_SESSION["logged_in"] = true;	//Setzt die Session für die verknüpften Dateien auf true
-		echo "<script type='text/javascript'>document.location.href='{$url}';</script>";
-	}
+	$sql = "SELECT * FROM users WHERE UserID= $username OR Password=$password;";
+	$result = $conn->query($sql);
+	if($result ->num_rows > 0){
+			session_start();
+			$_SESSION["logged_in"] = $result->object->ID;	//Setzt die Session für die verknüpften Dateien auf true
+			$url = "adminControl.php?login=success";
+			echo "Funktioniert";
+			//header("location: $url");
+		}
 	else{
 		$url = ("adminLogin.php");
 		echo "<script type='text/javascript'>document.location.href='{$url}';</script>";

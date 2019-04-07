@@ -23,7 +23,9 @@ if(!isset($_SESSION["logged_in"]) || !$_SESSION["logged_in"]) header("location: 
 			echo "<select name='Name'>";
 			//Lädt die Inhalte aus der >Tabeller users in die Combobox und übermittelt die ID des ausgewählten Objekts
 			while($row = $result->fetch_assoc()){
+				if(!$row["FirstName"]=="DEFAULT"){
 				echo "<option value='".$row["ID"]."'>".$row["FirstName"].$row["LastName"]."</option>";
+				}
 			}
 			echo "</select><br>";
 			//Die eingegebene Zahl (positiver oder negativer Wert) wird als newmoney übermittelt

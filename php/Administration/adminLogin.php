@@ -21,7 +21,7 @@
 		<center><form method="post" action="LogInProcess.php">
 			<div class="login"><input name="username" type="text" required /><span class="tooltip">Name</span></div><br>
 			<div class="login"><input name="password" type="password" required /><span class="tooltip">Passwort</span></div><br>
-			<br><input type="submit"/>
+			<br><input type="submit" name="submit" />
 		</form></center>
 	</div>
 </body>

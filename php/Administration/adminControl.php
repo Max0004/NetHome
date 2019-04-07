@@ -19,10 +19,7 @@ if(!isset($_SESSION["logged_in"]) || !$_SESSION["logged_in"]) header("location: 
 				<td class="selectAdministration"><h2><a href="userAdministration/postWork.php">Aufträge zuweisen</a></h2></td>
 			</tr>
 			<tr>
-				<td class="selectAdministration"><h2><a href="inventoryAdministration/addInventory.php">Objekt im Haus hinzufügen</a></h2></td>
-			</tr>
-			<tr>
-				<td class="selectAdministration"><h2><a href="inventoryAdministration/removeInventory.php">Objekt aus Haus entfernen</a></h2></td>
+				<td class="selectAdministration"><h2><a href="inventoryAdministration/Inventory.php">Hausinventar</a></h2></td>
 			</tr>
 			<tr>
 				<td class="selectAdministration"><h2><a href="moneyAdministration/money.php">Finanzen</a></h2></td>

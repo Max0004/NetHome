@@ -38,6 +38,23 @@ if(!isset($_SESSION["logged_in"]) || !$_SESSION["logged_in"]) header("location: 
 			<td><label>Position:</td><td></label><input type="text" name="position" required /></td>
 			</tr>
 			<tr>
+			<td><label>Benutzername:</td><td></label><input type="text" name="username" required /></td>
+			</tr>
+			<tr>
+			<td><label>Passwort:</td><td></label><input type="text" name="password" required /></td>
+			</tr>
+			<tr>
+			<td><label>Adminberechtigung:</td>
+			<td>
+			<?php
+			echo "<select name='isadmin'>";
+			echo "<option value='0'>Nein</option>";
+			echo "<option value='1'>Ja</option>";
+			echo "</select>";
+			?>
+			</td>
+			</tr>
+			<tr>
 			<td><label> </td>
 			<td></label><input type="submit" /></td>
 			</tr>
@@ -51,17 +68,21 @@ if(!isset($_SESSION["logged_in"]) || !$_SESSION["logged_in"]) header("location: 
 				<th>EMail</th>
 				<th>Arbeitsplatz</th>
 				<th>Position</th>
+				<th>Benutzername</th>
+				<th>Passwort</th>
+				<th>Ist Admin</th>
 			</tr>
 			<?php
 				include "../../DB_Connection/dbconnect.php";
 				//Ruft die Werte in der Tabelle users auf und baut einen Inner Join zu household auf
-				$sql = "SELECT users.FirstName,users.LastName,users.Birthdate,users.EMail,users.Workplace,household.Position FROM users INNER JOIN household ON household.UserID=users.ID;";
+				$sql = "SELECT users.FirstName,users.LastName,users.Birthdate,users.EMail,users.Workplace,household.Position,users.Username,users.Password,users.IsAdmin FROM users INNER JOIN household ON household.UserID=users.ID;";
 				
 				$result = $conn->query($sql); //Führt den SQL-Befehl aus
 				
 				//Zeigt die abgefragten Werte in einer Tabelle an
 				//Durchläuft eine Schleife bis zum Ende der Tabelle
-				while($row = $row = $result->fetch_assoc()){
+				while($row = $result->fetch_assoc()){
+					if(!$row["FirstName"]=="DEFAULT"){
 					echo "<tr>";
 					echo "<td>".$row["FirstName"]."</td>";
 					echo "<td>".$row["LastName"]."</td>";
@@ -71,7 +92,16 @@ if(!isset($_SESSION["logged_in"]) || !$_SESSION["logged_in"]) header("location: 
 					echo "<td>".$row["EMail"]."</td>";
 					echo "<td>".$row["Workplace"]."</td>";
 					echo "<td>".$row["Position"]."</td>";
+					echo "<td>".$row["Username"]."</td>";
+					echo "<td>".$row["Password"]."</td>";
+					if($row["IsAdmin"] == 1){
+						echo "<td>Ja</td>";
+					}
+					else{
+						echo "<td>Nein</td>";
+					}
 					echo "</tr>";
+					}
 				}
 			?>
 		</table>
